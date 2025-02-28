@@ -1,0 +1,17 @@
+Username: Arina
+Password: Arie
+Role: Customer 
+--------------------------
+--------------------------
+Username: KiranPandey
+Password: aaaaa
+Role: Customer
+--------------------------
+Username: Kiran
+Password: Kiran123
+Role: Customer
+--------------------------
+Username: Aayushka
+Password: Don123
+Role: Customer
+--------------------------
