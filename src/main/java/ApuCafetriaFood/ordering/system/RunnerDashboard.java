@@ -16,7 +16,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Sovem
+ * @author kiran
  */
 public class RunnerDashboard extends javax.swing.JFrame {
 
