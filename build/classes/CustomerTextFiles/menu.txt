@@ -1,0 +1,7 @@
+Burger,200
+Pasta,350
+Salad,150
+Sushi,100
+sushi,120
+Apple,233
+Orange,120

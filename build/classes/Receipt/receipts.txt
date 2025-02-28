@@ -1,0 +1,7 @@
+Transaction Receipt
+---------------------
+Username: Arina
+Amount: 1234.0
+Date: 2025-02-28
+Thank you for your transaction!
+

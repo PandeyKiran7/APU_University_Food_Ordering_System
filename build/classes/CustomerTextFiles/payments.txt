@@ -1,0 +1,3 @@
+Arina,Pasta,3,1050,Paid
+Arina,sushi,1,120,Paid
+123,Burger,1,200,Paid
