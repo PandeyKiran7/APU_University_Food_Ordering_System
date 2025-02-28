@@ -68,7 +68,7 @@ public class RunnerDashboard extends javax.swing.JFrame {
         reviewTable = new javax.swing.JTable();
         jLabel4 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
+        BackToHome = new javax.swing.JButton();
         updatetask = new javax.swing.JButton();
         viewtask = new javax.swing.JButton();
         jLabel16 = new javax.swing.JLabel();
@@ -177,7 +177,15 @@ public class RunnerDashboard extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 51));
 
-        jButton2.setText("Dashboard");
+        BackToHome.setBackground(new java.awt.Color(255, 0, 51));
+        BackToHome.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        BackToHome.setForeground(new java.awt.Color(255, 255, 255));
+        BackToHome.setText("Dashboard");
+        BackToHome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BackToHomeActionPerformed(evt);
+            }
+        });
 
         updatetask.setText("Update Task");
         updatetask.addActionListener(new java.awt.event.ActionListener() {
@@ -235,10 +243,10 @@ public class RunnerDashboard extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(viewcompleted)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton2)
+                        .addComponent(BackToHome)
                         .addGap(533, 533, 533)
                         .addComponent(jLabel16)))
-                .addContainerGap(531, Short.MAX_VALUE))
+                .addContainerGap(515, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(calculaterevenu)
@@ -249,18 +257,15 @@ public class RunnerDashboard extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
+                    .addComponent(BackToHome)
                     .addComponent(jLabel16))
+                .addGap(20, 20, 20)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(updatetask)
-                            .addComponent(viewtask)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(viewrevuew)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 241, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(viewtask)
+                        .addComponent(updatetask))
+                    .addComponent(viewrevuew))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 252, Short.MAX_VALUE)
                 .addComponent(calculaterevenu)
                 .addGap(192, 192, 192)
                 .addComponent(viewcompleted)
@@ -455,6 +460,15 @@ public class RunnerDashboard extends javax.swing.JFrame {
                 "Revenue Summary", JOptionPane.INFORMATION_MESSAGE);
 
     }//GEN-LAST:event_calculaterevenuActionPerformed
+
+    private void BackToHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackToHomeActionPerformed
+         this.setVisible(false);  // Hides the current page
+String userRole = "Runners"; 
+    // Show the Main UI (Home Page)
+    MainUI mainUI = new MainUI(userRole);  // Assuming MainUI is the class for your main home screen
+    mainUI.setVisible(true); 
+     mainUI.showRoleBasedContent(); 
+    }//GEN-LAST:event_BackToHomeActionPerformed
     
     
     
@@ -525,10 +539,10 @@ public class RunnerDashboard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BackToHome;
     private javax.swing.JButton calculaterevenu;
     private javax.swing.JTable completedtaskTable;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;

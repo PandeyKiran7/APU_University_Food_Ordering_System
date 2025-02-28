@@ -97,15 +97,18 @@ public class MainUI extends javax.swing.JFrame {
         RunnerDashboard = new javax.swing.JButton();
         Login = new javax.swing.JButton();
         Logout = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(0, 0, 51));
+        jPanel1.setBackground(new java.awt.Color(0, 51, 153));
         jPanel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Verdana", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("KIAASHAR CAFE");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 150, -1, -1));
 
         AdminDashboard.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         AdminDashboard.setText("ADMIN DASHBOARD");
@@ -114,6 +117,7 @@ public class MainUI extends javax.swing.JFrame {
                 AdminDashboardActionPerformed(evt);
             }
         });
+        jPanel1.add(AdminDashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 344, 252, 45));
 
         VendorDashboard.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         VendorDashboard.setText("VENDOR DASHBOARD");
@@ -122,6 +126,7 @@ public class MainUI extends javax.swing.JFrame {
                 VendorDashboardActionPerformed(evt);
             }
         });
+        jPanel1.add(VendorDashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 350, -1, 45));
 
         Customerdashboard.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         Customerdashboard.setText("CUSTOMER DASHBOARD");
@@ -130,6 +135,7 @@ public class MainUI extends javax.swing.JFrame {
                 CustomerdashboardActionPerformed(evt);
             }
         });
+        jPanel1.add(Customerdashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 466, -1, 44));
 
         RunnerDashboard.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         RunnerDashboard.setText("RUNNER DASHBOARD");
@@ -138,6 +144,7 @@ public class MainUI extends javax.swing.JFrame {
                 RunnerDashboardActionPerformed(evt);
             }
         });
+        jPanel1.add(RunnerDashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 460, -1, 48));
 
         Login.setBackground(new java.awt.Color(0, 204, 255));
         Login.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
@@ -148,6 +155,7 @@ public class MainUI extends javax.swing.JFrame {
                 LoginActionPerformed(evt);
             }
         });
+        jPanel1.add(Login, new org.netbeans.lib.awtextra.AbsoluteConstraints(93, 221, -1, 45));
 
         Logout.setBackground(new java.awt.Color(255, 0, 0));
         Logout.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
@@ -158,54 +166,12 @@ public class MainUI extends javax.swing.JFrame {
                 LogoutActionPerformed(evt);
             }
         });
+        jPanel1.add(Logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(367, 221, 126, 45));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addComponent(Customerdashboard)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
-                .addComponent(RunnerDashboard)
-                .addGap(33, 33, 33))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(AdminDashboard, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(VendorDashboard)
-                .addGap(47, 47, 47))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(109, 109, 109)
-                        .addComponent(Login)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Logout, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(153, 153, 153)
-                        .addComponent(jLabel1)))
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(jLabel1)
-                .addGap(67, 67, 67)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Logout, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Login, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(VendorDashboard, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(AdminDashboard, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(104, 104, 104)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Customerdashboard, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(RunnerDashboard, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(175, 175, 175))
-        );
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/main/java/ApuCafetriaFood/ordering/system/banner.png"))); // NOI18N
+        jButton1.setBorder(null);
+        jButton1.setBorderPainted(false);
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 50, 410, 80));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -215,7 +181,7 @@ public class MainUI extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 553, Short.MAX_VALUE)
         );
 
         pack();
@@ -337,6 +303,7 @@ public class MainUI extends javax.swing.JFrame {
     private javax.swing.JButton Logout;
     private javax.swing.JButton RunnerDashboard;
     private javax.swing.JButton VendorDashboard;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
