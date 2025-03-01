@@ -4,12 +4,14 @@
  */
 package main.java.ApuCafetriaFood.ordering.system;
 
+import java.awt.Color;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -75,6 +77,8 @@ public class RunnerDashboard extends javax.swing.JFrame {
         viewrevuew = new javax.swing.JButton();
         calculaterevenu = new javax.swing.JButton();
         viewcompleted = new javax.swing.JButton();
+        txtRunnerNotification = new javax.swing.JTextField();
+        btnCheckRunnerNotifications = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -226,39 +230,66 @@ public class RunnerDashboard extends javax.swing.JFrame {
             }
         });
 
+        txtRunnerNotification.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtRunnerNotificationActionPerformed(evt);
+            }
+        });
+
+        btnCheckRunnerNotifications.setText("CheckNotification");
+        btnCheckRunnerNotifications.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCheckRunnerNotificationsActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(180, 180, 180)
-                .addComponent(viewtask, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(updatetask)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(viewrevuew)
-                .addGap(283, 283, 283))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(viewcompleted)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(BackToHome)
-                        .addGap(533, 533, 533)
-                        .addComponent(jLabel16)))
-                .addContainerGap(515, Short.MAX_VALUE))
+                        .addGap(180, 180, 180)
+                        .addComponent(viewtask, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(updatetask))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(viewcompleted)
+                            .addComponent(BackToHome))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 146, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel16)
+                        .addGap(638, 638, 638))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(viewrevuew)
+                        .addGap(283, 283, 283))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(calculaterevenu)
-                .addGap(254, 254, 254))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(btnCheckRunnerNotifications)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGap(162, 162, 162)
+                            .addComponent(calculaterevenu)
+                            .addGap(254, 254, 254)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(txtRunnerNotification, javax.swing.GroupLayout.PREFERRED_SIZE, 427, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(116, 116, 116))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BackToHome)
-                    .addComponent(jLabel16))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addComponent(BackToHome))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(8, 8, 8)
+                        .addComponent(jLabel16)))
                 .addGap(20, 20, 20)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -267,7 +298,11 @@ public class RunnerDashboard extends javax.swing.JFrame {
                     .addComponent(viewrevuew))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 252, Short.MAX_VALUE)
                 .addComponent(calculaterevenu)
-                .addGap(192, 192, 192)
+                .addGap(43, 43, 43)
+                .addComponent(btnCheckRunnerNotifications)
+                .addGap(18, 18, 18)
+                .addComponent(txtRunnerNotification, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
                 .addComponent(viewcompleted)
                 .addGap(61, 61, 61))
         );
@@ -469,6 +504,68 @@ String userRole = "Runners";
     mainUI.setVisible(true); 
      mainUI.showRoleBasedContent(); 
     }//GEN-LAST:event_BackToHomeActionPerformed
+
+    private void btnCheckRunnerNotificationsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCheckRunnerNotificationsActionPerformed
+        try {
+        String line;
+        StringBuilder pendingTasks;
+        boolean hasPendingTasks;
+
+        // Read the notifications from the runner_notifications.txt file
+        try (BufferedReader brAssigned = new BufferedReader(new FileReader("src/NotificationFiles/runner_notifications.txt"))) {
+            pendingTasks = new StringBuilder(); // To collect all pending tasks
+            hasPendingTasks = false; // Flag to track if any pending tasks exist
+
+            // Process each line in runner_notifications.txt
+            while ((line = brAssigned.readLine()) != null) {
+                // Debugging: Print the raw line
+                System.out.println("Line read: " + line);
+
+                // Check if the line contains "New Delivery Assigned"
+                if (line.contains("New Delivery Assigned")) {
+                    // Extract the details from the line using regular expressions
+                    String[] parts = line.split("ordered");
+
+                    if (parts.length == 2) {
+                        String name = parts[0].replace("New Delivery Assigned:", "").trim();
+                        String[] itemAndQty = parts[1].split("\\(Qty:");
+
+                        if (itemAndQty.length == 2) {
+                            String item = itemAndQty[0].trim();
+                            String qty = itemAndQty[1].replace(")", "").trim();
+
+                            // Format the string for each task
+                            if (hasPendingTasks) {
+                                pendingTasks.append("\n");  // Add a line break between multiple tasks
+                            }
+
+                            pendingTasks.append("New Delivery Assigned: ").append(name)
+                                         .append(" ordered ").append(item)
+                                         .append(" (Qty: ").append(qty).append(")");
+
+                            hasPendingTasks = true;  // Mark as found at least one pending task
+                        }
+                    }
+                }
+            }
+        }
+
+        // If there are no pending tasks, display a message in the text field
+        if (!hasPendingTasks) {
+            txtRunnerNotification.setText("No new tasks found.");
+        } else {
+            // If there are pending tasks, display them in the text field
+            txtRunnerNotification.setText("Pending Tasks:\n" + pendingTasks.toString());
+        }
+    } catch (IOException ex) {
+        // Handle error in case of file reading issues
+        txtRunnerNotification.setText("Error reading files.");
+    }
+    }//GEN-LAST:event_btnCheckRunnerNotificationsActionPerformed
+
+    private void txtRunnerNotificationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRunnerNotificationActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtRunnerNotificationActionPerformed
     
     
     
@@ -519,27 +616,22 @@ String userRole = "Runners";
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(RunnerDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(RunnerDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(RunnerDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(RunnerDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        
+        //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new RunnerDashboard().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new RunnerDashboard().setVisible(true);
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BackToHome;
+    private javax.swing.JButton btnCheckRunnerNotifications;
     private javax.swing.JButton calculaterevenu;
     private javax.swing.JTable completedtaskTable;
     private javax.swing.JButton jButton1;
@@ -554,6 +646,7 @@ String userRole = "Runners";
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable reviewTable;
     private javax.swing.JTable taskTable;
+    private javax.swing.JTextField txtRunnerNotification;
     private javax.swing.JButton updatetask;
     private javax.swing.JButton viewcompleted;
     private javax.swing.JButton viewrevuew;

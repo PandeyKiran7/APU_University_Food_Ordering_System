@@ -5,6 +5,7 @@
 package main.java.ApuCafetriaFood.ordering.system;
 
 
+import java.awt.Color;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.BufferedReader;
@@ -90,6 +91,8 @@ public class CustomerDashboard extends javax.swing.JFrame {
         orders = new javax.swing.JButton();
         nameField = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
+        btnCheckCustomerNotifications = new javax.swing.JButton();
+        txtCustomerNotification = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -220,7 +223,7 @@ public class CustomerDashboard extends javax.swing.JFrame {
                 .addGap(25, 25, 25))
         );
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 40, 290, 350));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 140, 290, 350));
 
         jLabel5.setFont(new java.awt.Font("Sitka Text", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -352,6 +355,21 @@ public class CustomerDashboard extends javax.swing.JFrame {
         jLabel8.setText("UserName");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 60, -1, 20));
 
+        btnCheckCustomerNotifications.setText("CheckNotification");
+        btnCheckCustomerNotifications.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCheckCustomerNotificationsActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnCheckCustomerNotifications, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 20, -1, -1));
+
+        txtCustomerNotification.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCustomerNotificationActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtCustomerNotification, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 70, 280, 80));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1030, 750));
 
         pack();
@@ -397,7 +415,7 @@ private boolean isMenuVisible = false;
 //Order as customer and which gets saved in customer.txt
     private void ordersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ordersActionPerformed
                                          
-    int selectedRow = menuTable.getSelectedRow();
+     int selectedRow = menuTable.getSelectedRow();
     
     if (selectedRow == -1) {
         JOptionPane.showMessageDialog(this, "Please select an item!", "Error", JOptionPane.ERROR_MESSAGE);
@@ -426,7 +444,7 @@ private boolean isMenuVisible = false;
         writer.newLine();
         JOptionPane.showMessageDialog(this, "Order placed successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
         
-       
+        // Clear fields after successful order
         nameField.setText("");
         quantitySpinner.setValue(1); 
     } catch (IOException e) {
@@ -654,6 +672,59 @@ String userRole = "Customer";
      
     }//GEN-LAST:event_nameFieldActionPerformed
 
+    private void txtCustomerNotificationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCustomerNotificationActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCustomerNotificationActionPerformed
+
+    private void btnCheckCustomerNotificationsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCheckCustomerNotificationsActionPerformed
+       File orderFile = new File("src/NotificationFiles/customer_notifications.txt");
+
+    // Check if the file exists before attempting to read it
+    if (!orderFile.exists()) {
+        txtCustomerNotification.setText("Order status file not found.");
+        btnCheckCustomerNotifications.setBackground(Color.WHITE);  // Set button to white if file not found
+        return;
+    }
+
+    try (BufferedReader br = new BufferedReader(new FileReader(orderFile))) {
+        String line;
+        String latestStatus = "No updates";
+        String customerName = "Arina"; // Specify the customer name you're interested in
+        boolean newNotification = false; // To track if there is a new notification
+
+        while ((line = br.readLine()) != null) {
+            String[] orderData = line.split(",");
+
+            // Check if the customer name matches
+            if (orderData[0].equalsIgnoreCase(customerName)) {
+                String orderStatus = orderData[4]; // The status is the 5th element (index 4)
+
+                // Update the latest status if it's not already "Delivered"
+                if (orderStatus.equalsIgnoreCase("Pending")) {
+                    latestStatus = "Your order is assigned to " + orderData[1] + " and is " + orderStatus;
+                    newNotification = true; // Mark as new notification if status is Pending
+                }
+                if (orderStatus.equalsIgnoreCase("Delivered")) {
+                    latestStatus = "Your order for " + orderData[1] + " has been delivered.";
+                }
+            }
+        }
+
+        txtCustomerNotification.setText(latestStatus);
+
+        // Change button color based on new notification
+        if (newNotification) {
+            btnCheckCustomerNotifications.setBackground(Color.RED);  // Set button to red if new notification
+        } else {
+            btnCheckCustomerNotifications.setBackground(Color.WHITE); // Set button to white if no new notification
+        }
+
+    } catch (IOException ex) {
+        txtCustomerNotification.setText("Error reading file.");
+        btnCheckCustomerNotifications.setBackground(Color.WHITE); // Set button to white in case of error
+    }
+    }//GEN-LAST:event_btnCheckCustomerNotificationsActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -689,6 +760,7 @@ String userRole = "Customer";
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BackToHome;
+    private javax.swing.JButton btnCheckCustomerNotifications;
     private javax.swing.JButton cancelorder;
     private javax.swing.JTextField customerNameField;
     private javax.swing.JTextField itemNameField;
@@ -716,6 +788,7 @@ String userRole = "Customer";
     private javax.swing.JButton review;
     private javax.swing.JTextField reviewNumberField;
     private javax.swing.JTextField reviewTextArea;
+    private javax.swing.JTextField txtCustomerNotification;
     private javax.swing.JButton viewmenu;
     private javax.swing.JButton vieworder;
     // End of variables declaration//GEN-END:variables

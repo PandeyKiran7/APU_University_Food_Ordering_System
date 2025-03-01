@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package main.java.ApuCafetriaFood.ordering.system;
+import java.awt.Color;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.FileWriter;
@@ -18,6 +19,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 /**
  *
@@ -27,7 +29,6 @@ public class AdminDashboard extends javax.swing.JFrame {
 
    
     public AdminDashboard() {
-      
         setTitle("Admin Dashboard");
         initComponents();
         
@@ -75,19 +76,12 @@ private void openDashboard() {
         jPasswordField1 = new javax.swing.JPasswordField();
         SelectRole = new javax.swing.JComboBox<>();
         Register = new javax.swing.JButton();
-        viewusers = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTableUsers = new javax.swing.JTable();
-        deleteuser = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         usernametopup = new javax.swing.JTextField();
         amounttopup = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         topupcredit = new javax.swing.JToggleButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        transactionTable = new javax.swing.JTable();
-        logout = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
         generateTransactionReceipt = new javax.swing.JButton();
         receiptUsernameField = new javax.swing.JTextField();
@@ -107,7 +101,7 @@ private void openDashboard() {
         alluser = new javax.swing.JButton();
         delete = new javax.swing.JButton();
         Login = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
+        AdminPanel = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -116,6 +110,17 @@ private void openDashboard() {
         viewtransaction = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         BackToHome = new javax.swing.JButton();
+        logout = new javax.swing.JButton();
+        SendNotification = new javax.swing.JButton();
+        txtNotification = new javax.swing.JTextField();
+        CheckNotification = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        transactionTable = new javax.swing.JTable();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTableUsers = new javax.swing.JTable();
+        deleteuser = new javax.swing.JButton();
+        viewusers = new javax.swing.JButton();
+        LogOut = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -143,45 +148,6 @@ private void openDashboard() {
             }
         });
         getContentPane().add(Register, new org.netbeans.lib.awtextra.AbsoluteConstraints(238, 204, 126, -1));
-
-        viewusers.setText("View Users");
-        viewusers.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                viewusersActionPerformed(evt);
-            }
-        });
-        getContentPane().add(viewusers, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 258, 234, -1));
-
-        jTableUsers.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
-            },
-            new String [] {
-                "Username", "Password", "Role"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
-        jScrollPane1.setViewportView(jTableUsers);
-
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 287, 688, 184));
-
-        deleteuser.setText("Delete Users");
-        deleteuser.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deleteuserActionPerformed(evt);
-            }
-        });
-        getContentPane().add(deleteuser, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 258, 141, -1));
 
         jLabel5.setFont(new java.awt.Font("Sitka Text", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -217,40 +183,6 @@ private void openDashboard() {
             }
         });
         getContentPane().add(topupcredit, new org.netbeans.lib.awtextra.AbsoluteConstraints(961, 192, 120, -1));
-
-        transactionTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
-            },
-            new String [] {
-                "Name ", "Amount"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
-        jScrollPane2.setViewportView(transactionTable);
-
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 524, 688, 217));
-
-        logout.setBackground(new java.awt.Color(255, 0, 0));
-        logout.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        logout.setForeground(new java.awt.Color(255, 255, 255));
-        logout.setText("LogOut");
-        logout.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                logoutActionPerformed(evt);
-            }
-        });
-        getContentPane().add(logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(1282, 13, 83, -1));
 
         jLabel9.setFont(new java.awt.Font("Sitka Text", 1, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
@@ -353,7 +285,7 @@ private void openDashboard() {
         });
         getContentPane().add(Login, new org.netbeans.lib.awtextra.AbsoluteConstraints(134, 204, -1, -1));
 
-        jPanel1.setBackground(new java.awt.Color(0, 0, 51));
+        AdminPanel.setBackground(new java.awt.Color(0, 0, 51));
 
         jLabel16.setFont(new java.awt.Font("Sitka Text", 1, 24)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(255, 255, 255));
@@ -394,55 +326,197 @@ private void openDashboard() {
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(99, 99, 99)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
+        logout.setBackground(new java.awt.Color(255, 0, 0));
+        logout.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        logout.setForeground(new java.awt.Color(255, 255, 255));
+        logout.setText("LogOut");
+        logout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logoutActionPerformed(evt);
+            }
+        });
+
+        SendNotification.setText("SendNotification");
+        SendNotification.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SendNotificationActionPerformed(evt);
+            }
+        });
+
+        txtNotification.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNotificationActionPerformed(evt);
+            }
+        });
+
+        CheckNotification.setText("CheckNotification");
+        CheckNotification.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CheckNotificationActionPerformed(evt);
+            }
+        });
+
+        transactionTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
+            },
+            new String [] {
+                "Name ", "Amount"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(transactionTable);
+
+        jTableUsers.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Username", "Password", "Role"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(jTableUsers);
+
+        deleteuser.setText("Delete Users");
+        deleteuser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteuserActionPerformed(evt);
+            }
+        });
+
+        viewusers.setText("View Users");
+        viewusers.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewusersActionPerformed(evt);
+            }
+        });
+
+        LogOut.setBackground(new java.awt.Color(255, 51, 51));
+        LogOut.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        LogOut.setForeground(new java.awt.Color(255, 255, 255));
+        LogOut.setText("Logout");
+        LogOut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LogOutActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout AdminPanelLayout = new javax.swing.GroupLayout(AdminPanel);
+        AdminPanel.setLayout(AdminPanelLayout);
+        AdminPanelLayout.setHorizontalGroup(
+            AdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(AdminPanelLayout.createSequentialGroup()
+                .addGroup(AdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(AdminPanelLayout.createSequentialGroup()
+                        .addGroup(AdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(AdminPanelLayout.createSequentialGroup()
+                                .addGap(32, 32, 32)
                                 .addComponent(BackToHome)
                                 .addGap(68, 68, 68)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(213, 213, 213)
-                                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel8)
-                                .addGap(76, 76, 76)
-                                .addComponent(viewtransaction, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel4))))
-                .addContainerGap(601, Short.MAX_VALUE))
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(AdminPanelLayout.createSequentialGroup()
+                                .addGap(22, 22, 22)
+                                .addGroup(AdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 688, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 688, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(333, 333, 333)
+                        .addComponent(LogOut)
+                        .addGap(124, 124, 124)
+                        .addComponent(logout, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(AdminPanelLayout.createSequentialGroup()
+                        .addGap(99, 99, 99)
+                        .addGroup(AdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(416, 416, 416)
+                        .addGroup(AdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(CheckNotification)
+                            .addComponent(SendNotification)))
+                    .addGroup(AdminPanelLayout.createSequentialGroup()
+                        .addGap(135, 135, 135)
+                        .addComponent(jLabel8)
+                        .addGap(113, 113, 113)
+                        .addComponent(viewtransaction, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(AdminPanelLayout.createSequentialGroup()
+                        .addGap(76, 76, 76)
+                        .addComponent(jLabel4)
+                        .addGap(41, 41, 41)
+                        .addComponent(viewusers, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(36, 36, 36)
+                        .addComponent(deleteuser, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(AdminPanelLayout.createSequentialGroup()
+                        .addGap(441, 441, 441)
+                        .addComponent(txtNotification, javax.swing.GroupLayout.PREFERRED_SIZE, 429, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BackToHome))
-                .addGap(37, 37, 37)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+        AdminPanelLayout.setVerticalGroup(
+            AdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(AdminPanelLayout.createSequentialGroup()
+                .addGroup(AdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(AdminPanelLayout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addGroup(AdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(BackToHome)))
+                    .addGroup(AdminPanelLayout.createSequentialGroup()
+                        .addGap(11, 11, 11)
+                        .addGroup(AdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(logout)
+                            .addComponent(LogOut))))
+                .addGap(36, 36, 36)
+                .addGroup(AdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SendNotification))
                 .addGap(18, 18, 18)
-                .addComponent(jLabel3)
-                .addGap(118, 118, 118)
-                .addComponent(jLabel4)
-                .addGap(210, 210, 210)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(viewtransaction)
+                .addGroup(AdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3)
+                    .addComponent(CheckNotification))
+                .addGap(32, 32, 32)
+                .addComponent(txtNotification, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 146, Short.MAX_VALUE)
+                .addGroup(AdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4)
+                    .addGroup(AdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(viewusers)
+                        .addComponent(deleteuser)))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38)
+                .addGroup(AdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(AdminPanelLayout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(viewtransaction)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel8))
-                .addContainerGap(518, Short.MAX_VALUE))
+                .addGap(72, 72, 72))
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1400, 1030));
+        getContentPane().add(AdminPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1400, 1030));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -826,12 +900,189 @@ private void openDashboard() {
 
     private void BackToHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackToHomeActionPerformed
         this.setVisible(false);  // Hides the current page
-String userRole = "Admin"; 
+String userRole = "Admin, Customer, Runners, Vendors"; 
     // Show the Main UI (Home Page)
     MainUI mainUI = new MainUI(userRole);  // Assuming MainUI is the class for your main home screen
     mainUI.setVisible(true); 
      mainUI.showRoleBasedContent(); 
     }//GEN-LAST:event_BackToHomeActionPerformed
+
+    JTextField txtNotifications = new JTextField();
+    private void SendNotificationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SendNotificationActionPerformed
+        try (BufferedReader br = new BufferedReader(new FileReader("src/CustomerTextFiles/orders.txt"))) {
+        String line;
+        StringBuilder pendingOrders = new StringBuilder();
+        boolean hasPendingOrders = false;  // Flag to track if any pending orders exist
+
+        // Create a directory to store notifications if it doesn't exist
+        File notificationDir = new File("src/NotificationFiles");
+        if (!notificationDir.exists()) {
+            notificationDir.mkdirs();  // Create directory if it doesn't exist
+        }
+
+        // Loop through each line (order) in the file
+        while ((line = br.readLine()) != null) {
+            String[] orderDetails = line.split(",");
+            if (orderDetails.length == 5) {
+                String status = orderDetails[4].trim();
+                if (status.equalsIgnoreCase("Pending")) { 
+                    if (hasPendingOrders) {
+                        pendingOrders.append("\n");  // Add a line break for multiple orders
+                    }
+                    pendingOrders.append("New Order: ").append(orderDetails[0]).append(" ordered ").append(orderDetails[1]).append(" (Qty: ").append(orderDetails[2]).append(") - Total: ").append(orderDetails[3]);
+                    hasPendingOrders = true;  // Mark that we found at least one pending order
+                    
+                    // Send notifications to the Runner, Vendor, and Customer if not already sent
+                    sendNotificationToRunner(orderDetails);
+                    sendNotificationToVendor(orderDetails);
+                    sendNotificationToCustomer(orderDetails);
+                }
+            }
+        }
+
+        // Displaying notifications on the admin panel
+        if (hasPendingOrders) {
+            txtNotifications.setText("Pending Orders:\n" + pendingOrders.toString());
+            SendNotification.setBackground(Color.RED);  // Change button color to red if pending orders exist
+        } else {
+            txtNotifications.setText("No new notifications.");
+            SendNotification.setBackground(Color.WHITE);  // Change button color to white if no pending orders
+        }
+
+    } catch (IOException ex) {
+        // In case of error, set an error message
+        txtNotifications.setText("Error reading file.");
+    }
+}
+
+// Method to check if a notification already exists in the file
+private boolean notificationExists(String notification, String filePath) {
+    try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+        String line;
+        while ((line = reader.readLine()) != null) {
+            if (line.equals(notification)) {
+                return true;  // Notification already exists
+            }
+        }
+    } catch (IOException ex) {
+        System.out.println("Error checking notification file.");
+    }
+    return false;  // Notification does not exist
+}
+
+// Method to send notification to Runner (save to file)
+private void sendNotificationToRunner(String[] orderDetails) {
+    String runnerNotification = "New Delivery Assigned: " + orderDetails[0] + " ordered " + orderDetails[1] + 
+                                " (Qty: " + orderDetails[2] + ")";
+    
+    String filePath = "src/NotificationFiles/runner_notifications.txt";
+    
+    // Check if the notification already exists before writing
+    if (!notificationExists(runnerNotification, filePath)) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, true))) {
+            writer.write(runnerNotification);
+            writer.newLine();  // Add a new line after each notification
+        } catch (IOException ex) {
+            System.out.println("Error writing to runner notification file.");
+        }
+    }
+}
+
+// Method to send notification to Vendor (save to file)
+private void sendNotificationToVendor(String[] orderDetails) {
+    String vendorNotification = "New Order from " + orderDetails[0] + ": " + orderDetails[1] + 
+                                " (Qty: " + orderDetails[2] + ") - Total: " + orderDetails[3];
+    
+    String filePath = "src/NotificationFiles/vendor_notifications.txt";
+    
+    // Check if the notification already exists before writing
+    if (!notificationExists(vendorNotification, filePath)) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, true))) {
+            writer.write(vendorNotification);
+            writer.newLine();  // Add a new line after each notification
+        } catch (IOException ex) {
+            System.out.println("Error writing to vendor notification file.");
+        }
+    }
+}
+
+// Method to send notification to Customer (save to file)
+private void sendNotificationToCustomer(String[] orderDetails) {
+    String customerNotification = "Your Order for " + orderDetails[1] + " is Pending (Qty: " + orderDetails[2] + ")";
+    
+    String filePath = "src/NotificationFiles/customer_notifications.txt";
+    
+    // Check if the notification already exists before writing
+    if (!notificationExists(customerNotification, filePath)) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, true))) {
+            writer.write(customerNotification);
+            writer.newLine();  // Add a new line after each notification
+        } catch (IOException ex) {
+            System.out.println("Error writing to customer notification file.");
+        }
+    }
+    }//GEN-LAST:event_SendNotificationActionPerformed
+
+  private void displayPendingOrders() {
+    StringBuilder pendingOrders = new StringBuilder();
+    
+    try (BufferedReader reader = new BufferedReader(new FileReader("src/CustomerTextFiles/orders.txt"))) {
+        String line;
+        while ((line = reader.readLine()) != null) {
+            String[] orderDetails = line.split(",");
+            
+            // Check if the line contains at least 5 elements (username, item, quantity, total, status)
+            if (orderDetails.length >= 5) {
+                String username = orderDetails[0];
+                String item = orderDetails[1];
+                int quantity = Integer.parseInt(orderDetails[2]);
+                int total = Integer.parseInt(orderDetails[3]);
+                String status = orderDetails[4];
+                
+                // Only display orders that are Pending
+                if ("Pending".equalsIgnoreCase(status)) {
+                    pendingOrders.append("Customer: ").append(username)
+                            .append(", Item: ").append(item)
+                            .append(", Quantity: ").append(quantity)
+                            .append(", Total: ").append(total)
+                            .append(", Status: ").append(status)
+                            .append("\n");
+                }
+            } else {
+                // Handle the case where the order line does not have enough fields
+                System.err.println("Skipping invalid order entry: " + line);
+            }
+        }
+        
+        // Show the pending orders in the notification area
+        if (pendingOrders.length() > 0) {
+            txtNotification.setText("Pending Orders:\n" + pendingOrders.toString());
+        } else {
+            txtNotification.setText("No pending orders.");
+        }
+        
+    } catch (IOException e) {
+        JOptionPane.showMessageDialog(this, "Error reading orders!", "Error", JOptionPane.ERROR_MESSAGE);
+    }
+}
+
+
+    private void txtNotificationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNotificationActionPerformed
+        displayPendingOrders() ;
+    }//GEN-LAST:event_txtNotificationActionPerformed
+
+    private void CheckNotificationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckNotificationActionPerformed
+        displayPendingOrders() ;
+    }//GEN-LAST:event_CheckNotificationActionPerformed
+
+    private void LogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogOutActionPerformed
+          Login login = new Login(); 
+    login.setVisible(true);  
+    this.dispose();
+    }//GEN-LAST:event_LogOutActionPerformed
+
+  
+    
 //delete user in file deletes the user from file
     private boolean deleteUserFromFile(String username) {
     String[] files = {"src/Login/customers.txt", "src/Login/vendors.txt", "src/Login/runners.txt"}; 
@@ -953,10 +1204,14 @@ String userRole = "Admin";
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel AdminPanel;
     private javax.swing.JButton BackToHome;
+    private javax.swing.JButton CheckNotification;
+    private javax.swing.JButton LogOut;
     private javax.swing.JButton Login;
     private javax.swing.JButton Register;
     private javax.swing.JComboBox<String> SelectRole;
+    private javax.swing.JButton SendNotification;
     private javax.swing.JButton alluser;
     private javax.swing.JTextField amounttopup;
     private javax.swing.JButton delete;
@@ -978,7 +1233,6 @@ String userRole = "Admin";
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
@@ -990,6 +1244,7 @@ String userRole = "Admin";
     private javax.swing.JTextField receiptUsernameField;
     private javax.swing.JToggleButton topupcredit;
     private javax.swing.JTable transactionTable;
+    private javax.swing.JTextField txtNotification;
     private javax.swing.JPasswordField updatePasswordField;
     private javax.swing.JComboBox<String> updateRoleComboBox;
     private javax.swing.JButton updateUserInformation;

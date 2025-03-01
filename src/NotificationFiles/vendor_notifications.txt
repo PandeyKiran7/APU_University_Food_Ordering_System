@@ -1,0 +1,7 @@
+New Order from Arina: Pasta (Qty: 3) - Total: 1050
+New Order from kiran: Orange (Qty: 1) - Total: 120
+New Order from kiran12: Salad (Qty: 2) - Total: 300
+New Order from Arina: Pasta (Qty: 3) - Total: 1050
+
+New Order from arie: Salad (Qty: 1) - Total: 150
+New Order from kiran7: Sushi (Qty: 1) - Total: 100

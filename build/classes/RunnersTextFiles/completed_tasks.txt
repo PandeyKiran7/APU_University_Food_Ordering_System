@@ -1,7 +1,3 @@
-null,null,null
-null,null,null
-null,null,null
-null,null,null
 hello,Burger,Delivered
 Kiran,Orange,Delivered
 Arina,Pasta,Delivered

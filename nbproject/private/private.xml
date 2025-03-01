@@ -4,10 +4,15 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/D:/3rdSemDocs/UniversityFoodOrderingSystem/src/RunnersTextFiles/assigned_tasks.txt</file>
+            <file>file:/D:/3rdSemDocs/UniversityFoodOrderingSystem/src/RunnersTextFiles/completed_tasks.txt</file>
+            <file>file:/D:/3rdSemDocs/UniversityFoodOrderingSystem/src/main/java/ApuCafetriaFood/ordering/system/AdminDashboard.java</file>
             <file>file:/D:/3rdSemDocs/UniversityFoodOrderingSystem/src/main/java/ApuCafetriaFood/ordering/system/VendorDashboard.java</file>
             <file>file:/D:/3rdSemDocs/UniversityFoodOrderingSystem/src/main/java/ApuCafetriaFood/ordering/system/CustomerDashboard.java</file>
-            <file>file:/D:/3rdSemDocs/UniversityFoodOrderingSystem/src/main/java/ApuCafetriaFood/ordering/system/RunnerDashboard.java</file>
-            <file>file:/D:/3rdSemDocs/UniversityFoodOrderingSystem/src/main/java/ApuCafetriaFood/ordering/system/MainUI.java</file>
+            <file>file:/D:/3rdSemDocs/UniversityFoodOrderingSystem/src/CustomerTextFiles/payments.txt</file>
+            <file>file:/D:/3rdSemDocs/UniversityFoodOrderingSystem/src/CustomerTextFiles/orders.txt</file>
+            <file>file:/D:/3rdSemDocs/UniversityFoodOrderingSystem/src/CustomerTextFiles/menu.txt</file>
+            <file>file:/D:/3rdSemDocs/UniversityFoodOrderingSystem/src/NotificationFiles/vendor_notifications.txt</file>
+            <file>file:/D:/3rdSemDocs/UniversityFoodOrderingSystem/src/NotificationFiles/runner_notifications.txt</file>
         </group>
     </open-files>
 </project-private>

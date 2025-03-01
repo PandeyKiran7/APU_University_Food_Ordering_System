@@ -1,0 +1,8 @@
+New Delivery Assigned: Arina ordered Pasta (Qty: 3)
+New Delivery Assigned: kiran ordered Orange (Qty: 1)
+New Delivery Assigned: kiran12 ordered Salad (Qty: 2)
+New Delivery Assigned: Arina ordered Pasta (Qty: 3)
+New Delivery Assigned: kiran ordered Orange (Qty: 1)
+
+New Delivery Assigned: arie ordered Salad (Qty: 1)
+New Delivery Assigned: kiran7 ordered Sushi (Qty: 1)

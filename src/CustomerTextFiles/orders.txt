@@ -1,4 +1,8 @@
 
 Arina,Pasta,3,1050,Pending
-Arina,sushi,1,120,Pending
+Arina,sushi,1,120,Paid
 Kiran,Orange,1,120,Delivered
+kiran,Orange,1,120,Pending
+kiran12,Salad,2,300,Pending
+arie,Salad,1,150,Pending
+kiran7,Sushi,1,100,Pending

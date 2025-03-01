@@ -13,6 +13,8 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.HashSet;
+import java.util.Set;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -75,13 +77,15 @@ public class VendorDashboard extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         reviewTable = new javax.swing.JTable();
-        jLabel16 = new javax.swing.JLabel();
         BackToHome = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         revenuetotal = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         viewreview = new javax.swing.JButton();
+        txtVendorNotification = new javax.swing.JTextField();
+        jLabel16 = new javax.swing.JLabel();
+        btnCheckVendorNotifications = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -262,11 +266,6 @@ public class VendorDashboard extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(792, 114, 527, 207));
 
-        jLabel16.setFont(new java.awt.Font("Sitka Text", 1, 24)); // NOI18N
-        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel16.setText("VENDOR DASHBOARD");
-        getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(607, 18, -1, -1));
-
         BackToHome.setBackground(new java.awt.Color(255, 0, 0));
         BackToHome.setFont(new java.awt.Font("Sitka Text", 1, 14)); // NOI18N
         BackToHome.setForeground(new java.awt.Color(255, 255, 255));
@@ -302,6 +301,23 @@ public class VendorDashboard extends javax.swing.JFrame {
             }
         });
 
+        txtVendorNotification.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtVendorNotificationActionPerformed(evt);
+            }
+        });
+
+        jLabel16.setFont(new java.awt.Font("Sitka Text", 1, 24)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel16.setText("VENDOR DASHBOARD");
+
+        btnCheckVendorNotifications.setText("CheckNotifications");
+        btnCheckVendorNotifications.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCheckVendorNotificationsActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -316,24 +332,37 @@ public class VendorDashboard extends javax.swing.JFrame {
                 .addGap(290, 290, 290))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(viewreview, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(367, 367, 367))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(viewreview, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(367, 367, 367))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel16)
+                        .addGap(599, 599, 599))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtVendorNotification, javax.swing.GroupLayout.PREFERRED_SIZE, 427, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnCheckVendorNotifications))
+                        .addGap(128, 128, 128))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(68, 68, 68)
+                .addContainerGap()
+                .addComponent(jLabel16)
+                .addGap(31, 31, 31)
                 .addComponent(viewreview)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 254, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
-                            .addComponent(revenuetotal))
-                        .addGap(332, 332, 332))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(324, 324, 324))))
+                    .addComponent(jLabel2)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel4)
+                        .addComponent(revenuetotal)))
+                .addGap(35, 35, 35)
+                .addComponent(btnCheckVendorNotifications)
+                .addGap(18, 18, 18)
+                .addComponent(txtVendorNotification, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(185, 185, 185))
         );
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1360, 700));
@@ -664,6 +693,50 @@ String userRole = "Vendors";
     private void TaskAssignedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TaskAssignedActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TaskAssignedActionPerformed
+
+    private void btnCheckVendorNotificationsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCheckVendorNotificationsActionPerformed
+      try (BufferedReader br = new BufferedReader(new FileReader("src/NotificationFiles/vendor_notifications.txt"))) {
+        String line;
+        Set<String> uniqueOrders = new HashSet<>();  // HashSet to store orders and remove duplicates
+
+        // Read through each line in the file
+        while ((line = br.readLine()) != null) {
+            // Skip empty lines or lines without "New Order from"
+            if (line.trim().isEmpty() || !line.contains("New Order from")) {
+                continue; // Skip this line and move to the next
+            }
+
+            // Add the order to the set (duplicates will be automatically removed)
+            uniqueOrders.add(line.trim());
+        }
+
+        // If there are no orders found, display "No new orders"
+        StringBuilder ordersText = new StringBuilder();
+        if (uniqueOrders.isEmpty()) {
+            ordersText.append("No new orders");
+            btnCheckVendorNotifications.setBackground(Color.WHITE);  // Change button color to white
+        } else {
+            for (String order : uniqueOrders) {
+                if (ordersText.length() > 0) {
+                    ordersText.append("\n");  // Add a line break between multiple orders
+                }
+                ordersText.append(order);  // Append the order to the StringBuilder
+            }
+            btnCheckVendorNotifications.setBackground(Color.RED);  // Change button color to red if orders exist
+        }
+
+        // Set the text to show all unique orders (or "No new orders" if none found)
+        txtVendorNotification.setText(ordersText.toString());
+    } catch (IOException ex) {
+        // If there is an error reading the file, show an error message in the JTextField
+        txtVendorNotification.setText("Error reading file.");
+        btnCheckVendorNotifications.setBackground(Color.WHITE);  // Reset the button color to white on error
+    }
+    }//GEN-LAST:event_btnCheckVendorNotificationsActionPerformed
+
+    private void txtVendorNotificationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtVendorNotificationActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtVendorNotificationActionPerformed
     //calcualting total revenu button 
     private double calculateTotalRevenue() {
     double totalRevenue = 0.0;
@@ -766,6 +839,7 @@ String userRole = "Vendors";
     private javax.swing.JComboBox<String> TaskAssigned;
     private javax.swing.JButton acceptOrder;
     private javax.swing.JButton addbutton;
+    private javax.swing.JButton btnCheckVendorNotifications;
     private javax.swing.JButton cancelOrder;
     private javax.swing.JButton deleetbutton;
     private javax.swing.JButton editbutton;
@@ -784,6 +858,7 @@ String userRole = "Vendors";
     private javax.swing.JTextField pricetextfield;
     private javax.swing.JButton revenuetotal;
     private javax.swing.JTable reviewTable;
+    private javax.swing.JTextField txtVendorNotification;
     private javax.swing.JButton update;
     private javax.swing.JButton view;
     private javax.swing.JButton viewbutton;
