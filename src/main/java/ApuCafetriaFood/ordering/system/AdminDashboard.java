@@ -112,7 +112,6 @@ private void openDashboard() {
         BackToHome = new javax.swing.JButton();
         logout = new javax.swing.JButton();
         SendNotification = new javax.swing.JButton();
-        txtNotification = new javax.swing.JTextField();
         CheckNotification = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         transactionTable = new javax.swing.JTable();
@@ -121,6 +120,8 @@ private void openDashboard() {
         deleteuser = new javax.swing.JButton();
         viewusers = new javax.swing.JButton();
         LogOut = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        txtAdminNotification = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -343,12 +344,6 @@ private void openDashboard() {
             }
         });
 
-        txtNotification.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNotificationActionPerformed(evt);
-            }
-        });
-
         CheckNotification.setText("CheckNotification");
         CheckNotification.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -422,6 +417,10 @@ private void openDashboard() {
             }
         });
 
+        txtAdminNotification.setColumns(20);
+        txtAdminNotification.setRows(5);
+        jScrollPane3.setViewportView(txtAdminNotification);
+
         javax.swing.GroupLayout AdminPanelLayout = new javax.swing.GroupLayout(AdminPanel);
         AdminPanel.setLayout(AdminPanelLayout);
         AdminPanelLayout.setHorizontalGroup(
@@ -468,8 +467,8 @@ private void openDashboard() {
                         .addGap(36, 36, 36)
                         .addComponent(deleteuser, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(AdminPanelLayout.createSequentialGroup()
-                        .addGap(441, 441, 441)
-                        .addComponent(txtNotification, javax.swing.GroupLayout.PREFERRED_SIZE, 429, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(553, 553, 553)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         AdminPanelLayout.setVerticalGroup(
@@ -495,9 +494,9 @@ private void openDashboard() {
                 .addGroup(AdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
                     .addComponent(CheckNotification))
-                .addGap(32, 32, 32)
-                .addComponent(txtNotification, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 146, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 181, Short.MAX_VALUE)
                 .addGroup(AdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
                     .addGroup(AdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1008,8 +1007,14 @@ private void sendNotificationToVendor(String[] orderDetails) {
 
 // Method to send notification to Customer (save to file)
 private void sendNotificationToCustomer(String[] orderDetails) {
+      // Default message if the status is Pending
     String customerNotification = "Your Order for " + orderDetails[1] + " is Pending (Qty: " + orderDetails[2] + ")";
     
+    // Check the order status and update the notification message accordingly
+    if (orderDetails[4].equalsIgnoreCase("Out for delivery") || orderDetails[4].equalsIgnoreCase("Delivered")) {
+        customerNotification = "Your Order for " + orderDetails[1] + " is Ready (Qty: " + orderDetails[2] + ")";
+    }
+
     String filePath = "src/NotificationFiles/customer_notifications.txt";
     
     // Check if the notification already exists before writing
@@ -1021,6 +1026,9 @@ private void sendNotificationToCustomer(String[] orderDetails) {
             System.out.println("Error writing to customer notification file.");
         }
     }
+
+    // Optionally, show a message on the UI or log to console
+    System.out.println("Notification sent: " + customerNotification);
     }//GEN-LAST:event_SendNotificationActionPerformed
 
   private void displayPendingOrders() {
@@ -1056,9 +1064,9 @@ private void sendNotificationToCustomer(String[] orderDetails) {
         
         // Show the pending orders in the notification area
         if (pendingOrders.length() > 0) {
-            txtNotification.setText("Pending Orders:\n" + pendingOrders.toString());
+            txtAdminNotification.setText("Pending Orders:\n" + pendingOrders.toString());
         } else {
-            txtNotification.setText("No pending orders.");
+            txtAdminNotification.setText("No pending orders.");
         }
         
     } catch (IOException e) {
@@ -1066,10 +1074,6 @@ private void sendNotificationToCustomer(String[] orderDetails) {
     }
 }
 
-
-    private void txtNotificationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNotificationActionPerformed
-        displayPendingOrders() ;
-    }//GEN-LAST:event_txtNotificationActionPerformed
 
     private void CheckNotificationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckNotificationActionPerformed
         displayPendingOrders() ;
@@ -1236,6 +1240,7 @@ private void sendNotificationToCustomer(String[] orderDetails) {
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTable jTableUsers;
     private javax.swing.JTextField jTextField1;
@@ -1244,7 +1249,7 @@ private void sendNotificationToCustomer(String[] orderDetails) {
     private javax.swing.JTextField receiptUsernameField;
     private javax.swing.JToggleButton topupcredit;
     private javax.swing.JTable transactionTable;
-    private javax.swing.JTextField txtNotification;
+    private javax.swing.JTextArea txtAdminNotification;
     private javax.swing.JPasswordField updatePasswordField;
     private javax.swing.JComboBox<String> updateRoleComboBox;
     private javax.swing.JButton updateUserInformation;

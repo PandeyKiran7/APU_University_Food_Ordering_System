@@ -1,8 +1,8 @@
 
 Arina,Pasta,3,1050,Pending
-Arina,sushi,1,120,Paid
+Arina,sushi,1,120,Out for Delivery
 Kiran,Orange,1,120,Delivered
 kiran,Orange,1,120,Pending
-kiran12,Salad,2,300,Pending
-arie,Salad,1,150,Pending
-kiran7,Sushi,1,100,Pending
+kiran12,Salad,2,300,Paid
+Shekhar,Orange,1,120,Pending
+Aayshka,Burger,1,200,Pending

@@ -1,2 +1,3 @@
 Arina|120000.0
 Aayushka|1.2000012E7
+Kiran|12222.0

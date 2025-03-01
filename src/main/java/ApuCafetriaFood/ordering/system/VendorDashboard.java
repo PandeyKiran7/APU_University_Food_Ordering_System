@@ -83,9 +83,10 @@ public class VendorDashboard extends javax.swing.JFrame {
         revenuetotal = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         viewreview = new javax.swing.JButton();
-        txtVendorNotification = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
         btnCheckVendorNotifications = new javax.swing.JButton();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        txtVendorNotification = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -301,12 +302,6 @@ public class VendorDashboard extends javax.swing.JFrame {
             }
         });
 
-        txtVendorNotification.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtVendorNotificationActionPerformed(evt);
-            }
-        });
-
         jLabel16.setFont(new java.awt.Font("Sitka Text", 1, 24)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(255, 255, 255));
         jLabel16.setText("VENDOR DASHBOARD");
@@ -318,18 +313,14 @@ public class VendorDashboard extends javax.swing.JFrame {
             }
         });
 
+        txtVendorNotification.setColumns(20);
+        txtVendorNotification.setRows(5);
+        jScrollPane4.setViewportView(txtVendorNotification);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 639, Short.MAX_VALUE)
-                .addComponent(jLabel4)
-                .addGap(47, 47, 47)
-                .addComponent(revenuetotal, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(290, 290, 290))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -338,12 +329,24 @@ public class VendorDashboard extends javax.swing.JFrame {
                         .addGap(367, 367, 367))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel16)
-                        .addGap(599, 599, 599))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtVendorNotification, javax.swing.GroupLayout.PREFERRED_SIZE, 427, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnCheckVendorNotifications))
-                        .addGap(128, 128, 128))))
+                        .addGap(599, 599, 599))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 639, Short.MAX_VALUE)
+                        .addComponent(jLabel4)
+                        .addGap(47, 47, 47)
+                        .addComponent(revenuetotal, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(290, 290, 290))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnCheckVendorNotifications)
+                .addGap(406, 406, 406))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -360,9 +363,9 @@ public class VendorDashboard extends javax.swing.JFrame {
                         .addComponent(revenuetotal)))
                 .addGap(35, 35, 35)
                 .addComponent(btnCheckVendorNotifications)
-                .addGap(18, 18, 18)
-                .addComponent(txtVendorNotification, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(185, 185, 185))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(176, 176, 176))
         );
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1360, 700));
@@ -733,10 +736,6 @@ String userRole = "Vendors";
         btnCheckVendorNotifications.setBackground(Color.WHITE);  // Reset the button color to white on error
     }
     }//GEN-LAST:event_btnCheckVendorNotificationsActionPerformed
-
-    private void txtVendorNotificationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtVendorNotificationActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtVendorNotificationActionPerformed
     //calcualting total revenu button 
     private double calculateTotalRevenue() {
     double totalRevenue = 0.0;
@@ -853,12 +852,13 @@ String userRole = "Vendors";
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTable menuTable;
     private javax.swing.JTable orderTable;
     private javax.swing.JTextField pricetextfield;
     private javax.swing.JButton revenuetotal;
     private javax.swing.JTable reviewTable;
-    private javax.swing.JTextField txtVendorNotification;
+    private javax.swing.JTextArea txtVendorNotification;
     private javax.swing.JButton update;
     private javax.swing.JButton view;
     private javax.swing.JButton viewbutton;

@@ -92,7 +92,8 @@ public class CustomerDashboard extends javax.swing.JFrame {
         nameField = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         btnCheckCustomerNotifications = new javax.swing.JButton();
-        txtCustomerNotification = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtCustomerArea = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -363,12 +364,11 @@ public class CustomerDashboard extends javax.swing.JFrame {
         });
         jPanel1.add(btnCheckCustomerNotifications, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 20, -1, -1));
 
-        txtCustomerNotification.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCustomerNotificationActionPerformed(evt);
-            }
-        });
-        jPanel1.add(txtCustomerNotification, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 70, 280, 80));
+        txtCustomerArea.setColumns(20);
+        txtCustomerArea.setRows(5);
+        jScrollPane1.setViewportView(txtCustomerArea);
+
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 60, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1030, 750));
 
@@ -672,55 +672,41 @@ String userRole = "Customer";
      
     }//GEN-LAST:event_nameFieldActionPerformed
 
-    private void txtCustomerNotificationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCustomerNotificationActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCustomerNotificationActionPerformed
-
     private void btnCheckCustomerNotificationsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCheckCustomerNotificationsActionPerformed
-       File orderFile = new File("src/NotificationFiles/customer_notifications.txt");
+          File orderFile = new File("src/NotificationFiles/customer_notifications.txt");
 
     // Check if the file exists before attempting to read it
     if (!orderFile.exists()) {
-        txtCustomerNotification.setText("Order status file not found.");
+        txtCustomerArea.setText("Order status file not found.");
         btnCheckCustomerNotifications.setBackground(Color.WHITE);  // Set button to white if file not found
         return;
     }
 
     try (BufferedReader br = new BufferedReader(new FileReader(orderFile))) {
         String line;
-        String latestStatus = "No updates";
-        String customerName = "Arina"; // Specify the customer name you're interested in
-        boolean newNotification = false; // To track if there is a new notification
+        StringBuilder notificationText = new StringBuilder();  // StringBuilder to collect all notifications
 
         while ((line = br.readLine()) != null) {
-            String[] orderData = line.split(",");
+            // Debugging: Print the contents of each line
+            System.out.println("Read line: " + line);
 
-            // Check if the customer name matches
-            if (orderData[0].equalsIgnoreCase(customerName)) {
-                String orderStatus = orderData[4]; // The status is the 5th element (index 4)
-
-                // Update the latest status if it's not already "Delivered"
-                if (orderStatus.equalsIgnoreCase("Pending")) {
-                    latestStatus = "Your order is assigned to " + orderData[1] + " and is " + orderStatus;
-                    newNotification = true; // Mark as new notification if status is Pending
-                }
-                if (orderStatus.equalsIgnoreCase("Delivered")) {
-                    latestStatus = "Your order for " + orderData[1] + " has been delivered.";
-                }
-            }
+            // Append each line with a newline to ensure each notification appears on a new line
+            notificationText.append(line).append("\n");
         }
 
-        txtCustomerNotification.setText(latestStatus);
-
-        // Change button color based on new notification
-        if (newNotification) {
-            btnCheckCustomerNotifications.setBackground(Color.RED);  // Set button to red if new notification
-        } else {
-            btnCheckCustomerNotifications.setBackground(Color.WHITE); // Set button to white if no new notification
+        // If no notifications are found, show a default message
+        if (notificationText.length() == 0) {
+            notificationText.append("No new notifications.");
         }
+
+        // Set the text in the text field (notifications on separate lines)
+        txtCustomerArea.setText(notificationText.toString());
+
+        // Set the button color (not based on notifications, just keeping it simple)
+        btnCheckCustomerNotifications.setBackground(Color.WHITE);  // Set button to white if no special condition
 
     } catch (IOException ex) {
-        txtCustomerNotification.setText("Error reading file.");
+        txtCustomerArea.setText("Error reading file.");
         btnCheckCustomerNotifications.setBackground(Color.WHITE); // Set button to white in case of error
     }
     }//GEN-LAST:event_btnCheckCustomerNotificationsActionPerformed
@@ -775,6 +761,7 @@ String userRole = "Customer";
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JButton logout;
@@ -788,7 +775,7 @@ String userRole = "Customer";
     private javax.swing.JButton review;
     private javax.swing.JTextField reviewNumberField;
     private javax.swing.JTextField reviewTextArea;
-    private javax.swing.JTextField txtCustomerNotification;
+    private javax.swing.JTextArea txtCustomerArea;
     private javax.swing.JButton viewmenu;
     private javax.swing.JButton vieworder;
     // End of variables declaration//GEN-END:variables

@@ -1,2 +1,5 @@
 Arina,Pasta,Pending
-Arina,sushi,Pending
+Arina,sushi,Paid
+kiran,Orange,Pending
+kiran12,Salad,Paid
+Aayshka,Burger,Pending

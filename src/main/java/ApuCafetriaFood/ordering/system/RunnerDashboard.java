@@ -4,15 +4,16 @@
  */
 package main.java.ApuCafetriaFood.ordering.system;
 
-import java.awt.Color;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -28,6 +29,26 @@ public class RunnerDashboard extends javax.swing.JFrame {
     public RunnerDashboard() {
         setTitle("Runner Dashboard");
         initComponents();
+        
+         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE); // Prevent default closing behavior
+         // Add window listener to confirm exit
+        this.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                // Show confirmation dialog when trying to close the window
+                int response;
+                response = JOptionPane.showConfirmDialog(RunnerDashboard.this, 
+                        "Do you really want to leave this site?",
+                        "Exit Confirmation", 
+                        JOptionPane.YES_NO_OPTION,
+                        JOptionPane.QUESTION_MESSAGE);
+
+                if (response == JOptionPane.YES_OPTION) {
+                    System.exit(0); // Close the application if 'Yes'
+                }
+                // If 'No', nothing happens and the window remains open
+            }
+        });
     }
     
       private double calculateTotalRevenue() {
@@ -77,8 +98,9 @@ public class RunnerDashboard extends javax.swing.JFrame {
         viewrevuew = new javax.swing.JButton();
         calculaterevenu = new javax.swing.JButton();
         viewcompleted = new javax.swing.JButton();
-        txtRunnerNotification = new javax.swing.JTextField();
         btnCheckRunnerNotifications = new javax.swing.JButton();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        txtRunnersNotification = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -230,18 +252,16 @@ public class RunnerDashboard extends javax.swing.JFrame {
             }
         });
 
-        txtRunnerNotification.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtRunnerNotificationActionPerformed(evt);
-            }
-        });
-
         btnCheckRunnerNotifications.setText("CheckNotification");
         btnCheckRunnerNotifications.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCheckRunnerNotificationsActionPerformed(evt);
             }
         });
+
+        txtRunnersNotification.setColumns(20);
+        txtRunnersNotification.setRows(5);
+        jScrollPane4.setViewportView(txtRunnersNotification);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -270,15 +290,12 @@ public class RunnerDashboard extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(btnCheckRunnerNotifications)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(162, 162, 162)
-                            .addComponent(calculaterevenu)
-                            .addGap(254, 254, 254)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(txtRunnerNotification, javax.swing.GroupLayout.PREFERRED_SIZE, 427, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(116, 116, 116))))
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCheckRunnerNotifications)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(162, 162, 162)
+                        .addComponent(calculaterevenu)))
+                .addGap(254, 254, 254))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -300,9 +317,9 @@ public class RunnerDashboard extends javax.swing.JFrame {
                 .addComponent(calculaterevenu)
                 .addGap(43, 43, 43)
                 .addComponent(btnCheckRunnerNotifications)
-                .addGap(18, 18, 18)
-                .addComponent(txtRunnerNotification, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
                 .addComponent(viewcompleted)
                 .addGap(61, 61, 61))
         );
@@ -552,20 +569,16 @@ String userRole = "Runners";
 
         // If there are no pending tasks, display a message in the text field
         if (!hasPendingTasks) {
-            txtRunnerNotification.setText("No new tasks found.");
+            txtRunnersNotification.setText("No new tasks found.");
         } else {
             // If there are pending tasks, display them in the text field
-            txtRunnerNotification.setText("Pending Tasks:\n" + pendingTasks.toString());
+            txtRunnersNotification.setText("Pending Tasks:\n" + pendingTasks.toString());
         }
     } catch (IOException ex) {
         // Handle error in case of file reading issues
-        txtRunnerNotification.setText("Error reading files.");
+        txtRunnersNotification.setText("Error reading files.");
     }
     }//GEN-LAST:event_btnCheckRunnerNotificationsActionPerformed
-
-    private void txtRunnerNotificationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRunnerNotificationActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtRunnerNotificationActionPerformed
     
     
     
@@ -644,9 +657,10 @@ String userRole = "Runners";
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTable reviewTable;
     private javax.swing.JTable taskTable;
-    private javax.swing.JTextField txtRunnerNotification;
+    private javax.swing.JTextArea txtRunnersNotification;
     private javax.swing.JButton updatetask;
     private javax.swing.JButton viewcompleted;
     private javax.swing.JButton viewrevuew;

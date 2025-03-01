@@ -1,17 +1,19 @@
-Username: Arina
-Password: Arie
-Role: Customer 
+Username: Shekhar
+Password: Runner1234
+Role: Runners
 --------------------------
 --------------------------
-Username: KiranPandey
-Password: aaaaa
-Role: Customer
+--------------------------
+Username: Shekhar
+Password: Runner1234
+Role: Runners
+--------------------------
 --------------------------
 Username: Kiran
 Password: Kiran123
 Role: Customer
 --------------------------
-Username: Aayushka
-Password: Don123
+Username: Aayshka
+Password: Arina123
 Role: Customer
 --------------------------

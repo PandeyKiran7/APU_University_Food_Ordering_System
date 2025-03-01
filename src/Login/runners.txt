@@ -2,3 +2,7 @@ Username: Shekhar
 Password: shekhar123
 Role: Runners
 --------------------------
+Username: Shekhar
+Password: Runner123
+Role: Runners
+--------------------------

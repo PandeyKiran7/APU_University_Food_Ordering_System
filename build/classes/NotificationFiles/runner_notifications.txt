@@ -6,3 +6,5 @@ New Delivery Assigned: kiran ordered Orange (Qty: 1)
 
 New Delivery Assigned: arie ordered Salad (Qty: 1)
 New Delivery Assigned: kiran7 ordered Sushi (Qty: 1)
+New Delivery Assigned: Shekhar ordered Orange (Qty: 1)
+New Delivery Assigned: Aayshka ordered Burger (Qty: 1)
